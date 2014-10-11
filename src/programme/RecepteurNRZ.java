@@ -36,12 +36,12 @@ public class RecepteurNRZ extends Recepteur {
 		int nbBits = informationRecue.nbElements() / nbEch;
 		Boolean[] tabBool = new Boolean[nbBits];
 		
-
+		//Conversion ANALOGIQUE->NUMERIQUE.
 		for (i = 0; i < nbBits ; i++) {
 			for (j = 0; j < nbEch; j++) {
 				sum += informationRecue.iemeElement((i*nbEch)+j);
 			}
-			if ((sum / nbEch) > ((ampMax + ampMin) / 2)) {
+			if ((sum / nbEch) > ((ampMax + ampMin) / 2)) { //condition d'échantillonnage: moyenne/nombre d'échantillon > moyenne amplitude max
 				tabBool[i] = true;
 			} else {
 				tabBool[i] = false;
@@ -53,7 +53,7 @@ public class RecepteurNRZ extends Recepteur {
 		informationEmise = informationBool;
 
 		if (utilisationSondes) {
-			SondeLogique sl = new SondeLogique("sl2");
+			SondeLogique sl = new SondeLogique("Sortie Recepteur NRZ");
 			sl.recevoir(informationEmise);
 		}
 

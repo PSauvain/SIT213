@@ -46,9 +46,12 @@ public class TransmetteurParfaitAnalogique extends Transmetteur<Float, Float> {
 	public void emettre() throws InformationNonConforme {
 		informationEmise = informationRecue; // car transmetteur parfait
 
-		SondeAnalogique sa = new SondeAnalogique("sa4");
-		sa.recevoir(informationEmise);
-
+		if (this.utilisationSondes) {
+			SondeAnalogique sa = new SondeAnalogique(
+					"Sortie transmetteur Parfait analogique");
+			sa.recevoir(informationEmise);
+		}
+		
 		for (DestinationInterface<Float> dest : destinationsConnectees)
 			dest.recevoir(informationEmise);
 

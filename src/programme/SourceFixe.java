@@ -84,7 +84,7 @@ public class SourceFixe extends Source<Boolean> {
 		informationEmise = informationGeneree; // Pas de pertes
 
 		if (utilisationSondes) {
-			SondeLogique sl1 = new SondeLogique("sl1");
+			SondeLogique sl1 = new SondeLogique("Source fixe");
 			sl1.recevoir(informationEmise);
 		}
 		

@@ -1,4 +1,5 @@
 package programme;
+
 /**
  * Classe permettant de simuler un transmetteur parfait (le signal qu'il renvoit
  * n'est pas dégradé)
@@ -43,9 +44,12 @@ public class TransmetteurParfait extends Transmetteur<Boolean, Boolean> {
 	public void emettre() throws InformationNonConforme {
 		informationEmise = informationRecue; // car transmetteur parfait
 
-		SondeLogique sl2 = new SondeLogique("sl2");
-		sl2.recevoir(informationEmise);
-
+		if (this.utilisationSondes) {
+			SondeLogique sl2 = new SondeLogique(
+					"Sortie transmetteur parfait numérique");
+			sl2.recevoir(informationEmise);
+		}
+		
 		for (DestinationInterface<Boolean> dest : destinationsConnectees)
 			dest.recevoir(informationEmise);
 

@@ -100,7 +100,7 @@ public class EmetteurNRZT extends Emetteur {
 		informationEmise = sigAnalog;
 
 		if (utilisationSondes) {
-			SondeAnalogique sa1 = new SondeAnalogique("sa2");
+			SondeAnalogique sa1 = new SondeAnalogique("Sortie Emetteur NRZT");
 			sa1.recevoir(informationEmise);
 		}
 		

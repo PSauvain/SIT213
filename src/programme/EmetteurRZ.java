@@ -78,7 +78,7 @@ public class EmetteurRZ extends Emetteur {
 		informationEmise = sigAnalog;
 		
 		if(utilisationSondes) {
-			SondeAnalogique sa1 = new SondeAnalogique("sa1");
+			SondeAnalogique sa1 = new SondeAnalogique("Sortie Emetteur RZ");
 			sa1.recevoir(informationEmise);
 		}
 		

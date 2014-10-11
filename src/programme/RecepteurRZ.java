@@ -55,7 +55,7 @@ public class RecepteurRZ extends Recepteur {
 		informationEmise = informationBool;
 
 		if (utilisationSondes) {
-			SondeLogique sl = new SondeLogique("sl2");
+			SondeLogique sl = new SondeLogique("Sortie Recepteur RZ");
 			sl.recevoir(informationEmise);
 		}
 
